@@ -1,6 +1,7 @@
-const SUPABASE_URL = 'https://jpkjtutplacfbcyjvgeu.supabase.co';
-const SUPABASE_KEY = 'sb_publishable__1yNY7PiPl-nmzsOFPudFA_Mze9V6Bj';
-const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+import { SUPABASE_URL, SUPABASE_KEY } from './config.js';
+
+const client = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const title = document.querySelector('.left h1');
 
@@ -17,22 +18,33 @@ function animate() {
     time += 0.01;
     const autoX = Math.sin(time) * 5;
     const autoY = Math.cos(time) * 2;
-    title.style.transform = `translate(${mouseX + autoX}px, ${mouseY + autoY}px)`;
+
+    if (title) {
+        title.style.transform = `translate(${mouseX + autoX}px, ${mouseY + autoY}px)`;
+    }
     requestAnimationFrame(animate);
 }
 
 animate();
 
-document.querySelector('button').addEventListener('click', async function() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+const authForm = document.getElementById('auth-form');
 
-    const { data, error } = await client.auth.signUp({ email, password });
+if (authForm) {
+    authForm.addEventListener('submit', async function(e) {
 
-    if (error) {
-        console.log('Ошибка:', error.message);
-    } else {
-        console.log('Успех:', data);
-    }
-});
+        e.preventDefault();
 
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        const { data, error } = await client.auth.signUp({ email, password });
+
+        if (error) {
+            console.log('Ошибка:', error.message);
+            alert('Ошибка: ' + error.message);
+        } else {
+            console.log('Успех:', data);
+            alert('Проверьте почту для подтверждения регистрации!');
+        }
+    });
+}

@@ -32,7 +32,6 @@ body {
     position: relative;
 }
 
-/* Правая колонка */
 .right {
     flex: 1;
     display: flex; 
@@ -44,46 +43,58 @@ body {
     padding: 1%;
 }
 
+/* ДОБАВЛЯЕМ ЭТО: заставляем форму выстроить элементы в колонку по центру */
+#auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Форма занимает всю ширину .right */
+}
+
+/* Чтобы лейблы не прилипали к инпутам и были слева от них (если нужно как на скрине) */
+label {
+    width: 100%;
+    max-width: 300px;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
 .right h2 {
-    margin-bottom: 2%; /* Отступ снизу в 5% от ширины колонки */
+    margin-bottom: 2%; 
+    text-align: center;
 }
 
 /* Стили для полей ввода */
 input {
-    width: 100%; /* Чтобы инпут занимал всю ширину контейнера */
-    max-width: 300px; /* Ограничим, чтобы не был слишком длинным */
-    background-color: rgba(255, 255, 255, 0.05); /* Почти прозрачный темный фон */
-    border: 1px solid #ffffff; /* Та самая зеленая граница */
-    border-radius: 4px; /* Немного скруглим углы для современности */
-    padding: 12px 15px; /* Пространство внутри, чтобы тексту не было тесно */
-    color: #ffffff; /* Белый текст */
+    width: 100%;
+    max-width: 300px; /* Сохраняем твой размер */
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    padding: 12px 15px;
+    color: #ffffff;
     font-size: 16px;
-    outline: none; /* Убираем стандартную синюю рамку при нажатии */
-    transition: 0.3s; /* Плавность при взаимодействии */
-    margin-bottom: 15px; /* Отступ до следующего элемента или кнопки */
-}
-
-/* Эффект при клике на поле (фокус) */
-input:focus {
-    background-color: rgba(7, 167, 36, 0.1); /* Слегка подсветим фон зеленым */
-    box-shadow: 0 0 10px rgba(7, 167, 36, 0.3); /* Добавим легкое свечение */
+    outline: none;
+    transition: 0.3s;
+    margin-bottom: 15px;
 }
 
 /* Стили для кнопки */
 button {
     width: 100%;
-    max-width: 330px;
-    background-color: #2ecc71; /* Зеленый фон */
-    color: #000000; /* Черный текст */
-    border: none; /* Убираем стандартную рамку */
+    max-width: 300px; /* Сделал 300px, чтобы вровень с инпутами */
+    background-color: #2ecc71;
+    color: #000000;
+    border: none;
     border-radius: 4px;
     padding: 12px 20px;
     font-weight: bold;
     font-size: 16px;
-    cursor: pointer; /* Чтобы при наведении появлялся «палец» */
-    transition: background-color 0.3s;
+    cursor: pointer;
     transition: all 0.5s ease;
-    margin-bottom: 5%;
+    margin-top: 10px; /* Добавил отступ сверху */
+    margin-bottom: 20px;
 }
 
 /* Эффект при наведении на кнопку */

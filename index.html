@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Учите английский: через свою жизнь</title> 
@@ -14,21 +13,23 @@
         <img src="logo.png" alt="logo" class="logo">
         <h1>Учите английский через свою жизнь — вместе с AI</h1>
     </div>
-<div class="energy"></div>
+    <div class="energy"></div>
     <div class="right">
         <h2>Зарегистрируйся и начни свой путь в изучении</h2>
+        <form id="auth-form">
             <label for="email">Введите email</label>
-            <input type="email" id="email" placeholder="your@email.com"> 
+            <input type="email" id="email" placeholder="your@email.com" required> 
  
             <label for="password">Введите пароль</label>
-            <input type="password" id="password" placeholder="Введите ваш пароль">
-            <button>Зарегистрироваться</button>
+            <input type="password" id="password" placeholder="Введите ваш пароль" required>
+            <button type="submit">Зарегистрироваться</button>
+        </form>
 
-            <h3>Политика конфиденциальности</h3>
-            <button>Просмотреть</button>
+        <h3>Политика конфиденциальности</h3>
+        <button type="button">Просмотреть</button>
     </div>
-    </div>
-<script src="script.js"></script>
+</div>
+
+<script type="module" src="script.js"></script>
 </body>
-
 </html>
