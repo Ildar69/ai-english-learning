@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+}
+
+.container {
+    height: 100%;
+}
+
+/* Родительский блок */
+.container {
+    display: flex; /* Активируем Flexbox */
+    flex-direction: row; /* Направляем элементы в ряд (это значение по умолчанию) */
+    gap: 0px; /* Добавляет расстояние между колонками */
+}
+
+/* Левая колонка */
+.left {
+    flex: 1; /* Колонка займет доступное место */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212;
+    color: #2ecc71;
+    padding: 20px;
+    min-height: 300px;
+    position: relative;
+}
+
+/* Правая колонка */
+.right {
+    flex: 1;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #121212;
+    color: #2ecc71;
+    padding: 1%;
+}
+
+.right h2 {
+    margin-bottom: 2%; /* Отступ снизу в 5% от ширины колонки */
+}
+
+/* Стили для полей ввода */
+input {
+    width: 100%; /* Чтобы инпут занимал всю ширину контейнера */
+    max-width: 300px; /* Ограничим, чтобы не был слишком длинным */
+    background-color: rgba(255, 255, 255, 0.05); /* Почти прозрачный темный фон */
+    border: 1px solid #ffffff; /* Та самая зеленая граница */
+    border-radius: 4px; /* Немного скруглим углы для современности */
+    padding: 12px 15px; /* Пространство внутри, чтобы тексту не было тесно */
+    color: #ffffff; /* Белый текст */
+    font-size: 16px;
+    outline: none; /* Убираем стандартную синюю рамку при нажатии */
+    transition: 0.3s; /* Плавность при взаимодействии */
+    margin-bottom: 15px; /* Отступ до следующего элемента или кнопки */
+}
+
+/* Эффект при клике на поле (фокус) */
+input:focus {
+    background-color: rgba(7, 167, 36, 0.1); /* Слегка подсветим фон зеленым */
+    box-shadow: 0 0 10px rgba(7, 167, 36, 0.3); /* Добавим легкое свечение */
+}
+
+/* Стили для кнопки */
+button {
+    width: 100%;
+    max-width: 330px;
+    background-color: #2ecc71; /* Зеленый фон */
+    color: #000000; /* Черный текст */
+    border: none; /* Убираем стандартную рамку */
+    border-radius: 4px;
+    padding: 12px 20px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer; /* Чтобы при наведении появлялся «палец» */
+    transition: background-color 0.3s;
+    transition: all 0.5s ease;
+    margin-bottom: 5%;
+}
+
+/* Эффект при наведении на кнопку */
+button:hover {
+    background-color: #98FB98; /* Делаем чуть темнее при наведении */
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+@keyframes flow {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+.energy {
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        transparent, 
+        #2ecc71, 
+        transparent,
+        #2ecc71, 
+        transparent,
+        #2ecc71,
+        transparent);
+    background-size: 100% 600%;
+    animation: flow 8s linear infinite;
+    box-shadow: 0 0 8px #07a724;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 122px;
+}
